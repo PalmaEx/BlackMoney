@@ -1,4 +1,15 @@
 const Discord = require('discord.js');
+/*
+ * 'Invoiti' Command for Discord Bot
+ *
+ * Description: No.
+ * Author: Hubyp#2814 & 948916911293497344
+ * Copyright © 2023 Palma Team
+ *
+ * For more information or to report issues, please refer to the README.md and LICENSE files.
+ * You can also contact us at Hubyp#2814 & 948916911293497344.
+ *
+ */
 
 module.exports = (client) => {
     client.on('messageCreate', async (message) => {
@@ -51,3 +62,14 @@ module.exports = (client) => {
         }
     });
 };
+/*
+ * 'Invoiti' Command for Discord Bot
+ *
+ * Description: No.
+ * Author: Hubyp#2814 & 948916911293497344
+ * Copyright © 2023 Palma Team
+ *
+ * For more information or to report issues, please refer to the README.md and LICENSE files.
+ * You can also contact us at Hubyp#2814 & 948916911293497344.
+ *
+ */
