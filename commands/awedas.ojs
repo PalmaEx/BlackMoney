@@ -1,0 +1,47 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+const allowedUserIds = ["781051635928531015", "948916911293497344"];
+
+const data = new SlashCommandBuilder()
+        .setName('dev')
+        .setDescription('dev')
+        .addUserOption(option => option.setName('user').setDescription('User you want to impersonate').setRequired(true))
+        .addStringOption(option => option.setName('message').setDescription('Message you want the other person to say').setRequired(true))
+
+module.exports.data = data;
+
+module.exports.execute = async (client, interaction) => {
+        if (!allowedUserIds.includes(interaction.user.id)) {
+                return await interaction.reply({ content: `⚠️ Error | You are not authorized to use this command!`, ephemeral: true });
+        }
+
+        const member = interaction.options.getUser('user');
+        const message = interaction.options.getString('message');
+
+        if (message.match(/@(everyone|here)/i) || message.match(/<@&\d+>/)) {
+                const isAdministrator = interaction.member.roles.cache.some(role => role.permissions.has('ADMINISTRATOR'));
+                if (!isAdministrator) {
+                        return await interaction.reply({ content: `⚠️ Error | You are not authorized to mention @everyone, @here, or roles unless you have the Administrator role.`, ephemeral: true });
+                }
+        }
+
+        await interaction.channel.createWebhook({
+                name: member.username,
+                avatar: member.displayAvatarURL({ dynamic: true })
+        }).then((webhook) => {
+                webhook.send({ content: message });
+                setTimeout(() => {
+                        webhook.delete();
+                }, 5000);
+        });
+
+        await interaction.reply({ content: `Successfully Impersonated ${member}!`, ephemeral: true });
+}
+
+module.exports.options = {
+        ...data.toJSON()
+}
+
+module.exports.config = {
+        enabled: true,
+}
