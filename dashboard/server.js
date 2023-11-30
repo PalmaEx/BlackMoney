@@ -38,7 +38,7 @@ const forumQuestionSchema = new mongoose.Schema({
 });
 const ForumQuestion = mongoose.model('ForumQuestion', forumQuestionSchema);
 
-mongoose.connect('mongodb+srv://neza4:uo-vs85e@cluster0.8i9vcnx.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
 });
@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 passport.use(new DiscordStrategy({
         clientID: process.env.DISCORD_CLIENT_ID,
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
-        callbackURL: 'https://testwq.hubyp.repl.co/callback',
+        callbackURL: '   ',
         scope: ['identify', 'email']
 }, (accessToken, refreshToken, profile, done) => {
         authenticatedUsers[profile.id] = profile;
