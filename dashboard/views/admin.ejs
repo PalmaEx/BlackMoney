@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <%- include("../scurtaturi/nav-bar") %>
+  <main class="main-container">
+    <h1 class="main-title">Admin Dashboard</h1>
+    <section class="admin-section">
+      <!-- Display the list of questions for the admin to manage -->
+      <% if(topics && topics.length > 0) { %>
+        <div id="questions-list">
+          <% topics.forEach(topic => { %>
+            <div class="admin-question">
+              <h3><%= topic.title %></h3>
+              <button onclick="deleteQuestion('<%= topic._id %>')">Delete</button>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p>No questions to display</p>
+      <% } %>
+    </section>
+  </main>
+
+  <script>
+    function deleteQuestion(questionId) {
+      if (confirm('Are you sure you want to delete this question?')) {
+        axios.delete('/forum/' + questionId)
+          .then(function (response) {
+            // Handle success
+            console.log(response);
+            window.location.reload();
+          })
+          .catch(function (error) {
+            // Handle error
+            console.log(error);
+          });
+      }
+    }
+  </script>
+</body>
+</html>
