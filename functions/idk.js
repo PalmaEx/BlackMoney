@@ -1,10 +1,10 @@
-// filename: functions/filterBlacklistedWords.js
+// filename: functions/idk.js
 
 const blacklistedWords = [
-  'Tocila',
-  'tocila',
-  'Tocilă',
-  'tocilă',
+  'adsadfas',
+  'asda',
+  'sda',
+  'A',
 ];
 
 module.exports = (client) => {
