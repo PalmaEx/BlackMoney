@@ -47,7 +47,7 @@ const secret = uuidv4();
 const authenticatedUsers = {};
 
 app.use(session({
-        secret: "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
+        secret: "UR SECRET HERE",
         resave: false,
         saveUninitialized: false,
 }));
