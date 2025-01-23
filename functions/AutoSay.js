@@ -6,8 +6,8 @@ module.exports = (client) => {
       // Use try-catch for handling asynchronous errors instead of chaining then() and catch()
       const embed = new EmbedBuilder()
         .setColor(0xFFA07A)
-        .setTitle('Atentie Imaginile pot Contine Minore / Adolescente!!')
-        .setDescription('> Postarile pot contine continut 18+ sau 16-\n\n, **__NOI SI DISCORD NU NE ASUMAM ACEST LUCRU CAT TIMP NU CONTINE SPIONAJ SAU VIOLURI__**')
+        .setTitle('Atentie Continut 18+!!')
+        .setDescription('> Postarile pot contine continut 18+\n\n, **__NOI SI DISCORD NU NE ASUMAM ACEST LUCRU CAT TIMP NU CONTINE SPIONAJ SAU VIOLURI__**\n Imaginile nu trebuie sa contina Pornografie infantila, Videoclip-uri "Promo" adica cele care contine link-uri de discord!')
         .setImage('https://www.allbusiness.com/media-library/triangular-yellow-warning-sign-with-a-red-border-with-an-exclamation-mark-and-the-text-disclaimer.jpg?id=32091372&width=400&height=400')
         .setTimestamp();
 
