@@ -79,13 +79,7 @@ const slashCommandsRegister = () => {
         synchronizeSlashCommands(client, commands.map((c) => c.options), fetchOptions);
 };
 
-client.on('messageCreate', message => {
-    const userToDeleteMessages = '993488886548402196'; 
 
-    if (message.author.id === userToDeleteMessages) {
-        message.delete().catch(console.error);
-    }
-});
 eventsRegister();
 commandsRegister();
 slashCommandsRegister();
