@@ -55,7 +55,7 @@ module.exports = async (client, interaction) => {
             await sendExecutionLog(interaction.commandName, interaction.user.tag, interaction.guild, interaction.channel, category);
         } catch (error) {
             console.error(error);
-            await sendWebhook('1170162692061929492', 'L1a8F5QNvTfZ2rrT3-rjUJfboGneTPGkBZw_grp6VqEG-xArCycobBHOqONRoseqqk-V', `An error occurred while executing this command | Error: ${error}`);
+            await sendWebhook('WEHBOOK_ID', 'WEHBOOK_TOKEN', `An error occurred while executing this command | Error: ${error}`);
             await interaction.reply({
                 content: "An error occurred while executing this command!",
                 ephemeral: true,
